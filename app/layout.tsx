@@ -41,22 +41,19 @@ export default function RootLayout({
                 <span className="sr-only">Toggle navigation</span>
                 Menu <i className="fa fa-bars" />
               </button>
-              <Link className="navbar-brand" href="#">Start Bootstrap</Link>
+              <Link className="navbar-brand" href="/">Start Bootstrap</Link>
             </div>
 
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul className="nav navbar-nav navbar-right">
                 <li>
-                  <Link href="index.html">Home</Link>
+                  <Link href="/">Home</Link>
                 </li>
                 <li>
-                  <Link href="about.html">About</Link>
+                  <Link href="/about">About</Link>
                 </li>
                 <li>
-                  <Link href="post.html">Sample Post</Link>
-                </li>
-                <li>
-                  <Link href="contact.html">Contact</Link>
+                  <Link href="/contact">Contact</Link>
                 </li>
               </ul>
             </div>

@@ -18,14 +18,14 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 const Post = async ({ params }: { params: { slug: string } }) => {
   const blogPageData = await client.pageBlogPost({ slug: params.slug.toString() });
   const blogPost = blogPageData.pageBlogPostCollection?.items[0];
-
+  
   if (!blogPost) {
     return null;
   }
 
   return (
     <div>
-      <Hero title={blogPost.title ?? ""} subtitle={blogPost.shortDescription ?? ""} />
+      <Hero title={blogPost.title ?? ""} subtitle={blogPost.shortDescription ?? ""} bg={blogPost.featuredImage?.url ?? null} />
       <div className="container">
         <div className="row">
           <div className="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">

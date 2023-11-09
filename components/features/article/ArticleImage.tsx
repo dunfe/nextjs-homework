@@ -6,15 +6,12 @@ interface ArticleImageProps {
 }
 
 export const ArticleImage = ({ image }: ArticleImageProps) => {
-  const className = image.fullWidth
-  ? 'mt-0 mb-0 md:w-screen md:max-w-[calc(100vw-40px)] md:shrink-0'
-  : 'mt-0 mb-0 rounded-2xl border border-gray300 shadow-lg';
   return image.image ? (
     <figure>
       <div className="flex justify-center">
         <CtfImage
           nextImageProps={{
-            className: className,
+            className: "mt-0 mb-0 rounded-2xl border border-gray300 shadow-lg",
           }}
           {...image.image}
         />
