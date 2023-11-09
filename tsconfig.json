@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "allowJs": true,
+    "types": ["react-dom/experimental"],
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "jsx": "preserve",

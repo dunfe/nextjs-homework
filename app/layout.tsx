@@ -2,11 +2,15 @@ import type { Metadata } from 'next'
 import { Lora, Open_Sans } from 'next/font/google'
 import Head from 'next/head'
 import Link from 'next/link'
+import { UserProvider } from '@auth0/nextjs-auth0/client';
+import Navigation from '@components/Navigation';
 
 import './vendor/font-awesome/css/font-awesome.min.css'
 import './vendor/bootstrap/css/bootstrap.min.css'
 import './globals.css'
 import './css/clean-blog.min.css'
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 const open_sans = Open_Sans({ subsets: ['latin'] })
 const lora = Lora({ subsets: ['latin'] })
@@ -33,75 +37,55 @@ export default function RootLayout({
 
         <title>Clean Blog</title>
       </Head>
-      <body className={`${open_sans.className} ${lora.className}`}>
-        <nav className="navbar navbar-default navbar-custom navbar-fixed-top">
-          <div className="container-fluid">
-            <div className="navbar-header page-scroll">
-              <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span className="sr-only">Toggle navigation</span>
-                Menu <i className="fa fa-bars" />
-              </button>
-              <Link className="navbar-brand" href="/">Start Bootstrap</Link>
-            </div>
+      <UserProvider>
 
-            <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul className="nav navbar-nav navbar-right">
-                <li>
-                  <Link href="/">Home</Link>
-                </li>
-                <li>
-                  <Link href="/about">About</Link>
-                </li>
-                <li>
-                  <Link href="/contact">Contact</Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
+        <body className={`${open_sans.className} ${lora.className}`}>
+          <Navigation />
 
-        {children}
+          {children}
 
-        <footer>
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul className="list-inline text-center">
-                  <li>
-                    <Link href="#">
-                      <span className="fa-stack fa-lg">
-                        <i className="fa fa-circle fa-stack-2x" />
-                        <i className="fa fa-twitter fa-stack-1x fa-inverse" />
-                      </span>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#">
-                      <span className="fa-stack fa-lg">
-                        <i className="fa fa-circle fa-stack-2x" />
-                        <i className="fa fa-facebook fa-stack-1x fa-inverse" />
-                      </span>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#">
-                      <span className="fa-stack fa-lg">
-                        <i className="fa fa-circle fa-stack-2x" />
-                        <i className="fa fa-github fa-stack-1x fa-inverse" />
-                      </span>
-                    </Link>
-                  </li>
-                </ul>
-                <p className="copyright text-muted">Copyright &copy; Your Website 2016</p>
+          <footer>
+            <div className="container">
+              <div className="row">
+                <div className="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                  <ul className="list-inline text-center">
+                    <li>
+                      <Link href="#">
+                        <span className="fa-stack fa-lg">
+                          <i className="fa fa-circle fa-stack-2x" />
+                          <i className="fa fa-twitter fa-stack-1x fa-inverse" />
+                        </span>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="#">
+                        <span className="fa-stack fa-lg">
+                          <i className="fa fa-circle fa-stack-2x" />
+                          <i className="fa fa-facebook fa-stack-1x fa-inverse" />
+                        </span>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="#">
+                        <span className="fa-stack fa-lg">
+                          <i className="fa fa-circle fa-stack-2x" />
+                          <i className="fa fa-github fa-stack-1x fa-inverse" />
+                        </span>
+                      </Link>
+                    </li>
+                  </ul>
+                  <p className="copyright text-muted">Copyright &copy; Your Website 2016</p>
+                </div>
               </div>
             </div>
-          </div>
-        </footer>
-        <script async src="vendor/jquery/jquery.min.js"/>
-        <script async src="./vendor/jquery/jquery.min.js"/>
-        <script async src="./vendor/bootstrap/js/bootstrap.min.js"/>
+          </footer>
+          <ToastContainer />
+          <script async src="vendor/jquery/jquery.min.js" />
+          <script async src="./vendor/jquery/jquery.min.js" />
+          <script async src="./vendor/bootstrap/js/bootstrap.min.js" />
 
-      </body>
+        </body>
+      </UserProvider>
     </html>
   )
 }
