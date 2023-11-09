@@ -1,8 +1,10 @@
+import { UserProvider } from '@auth0/nextjs-auth0/client';
 import type { Metadata } from 'next'
 import { Lora, Open_Sans } from 'next/font/google'
 import Head from 'next/head'
 import Link from 'next/link'
-import { UserProvider } from '@auth0/nextjs-auth0/client';
+import { ToastContainer } from 'react-toastify';
+
 import Navigation from '@components/Navigation';
 
 import './vendor/font-awesome/css/font-awesome.min.css'
@@ -10,7 +12,6 @@ import './vendor/bootstrap/css/bootstrap.min.css'
 import './globals.css'
 import './css/clean-blog.min.css'
 import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer } from 'react-toastify';
 
 const open_sans = Open_Sans({ subsets: ['latin'] })
 const lora = Lora({ subsets: ['latin'] })

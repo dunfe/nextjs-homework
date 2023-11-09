@@ -3,10 +3,10 @@ export const toSlug = str => {
   str = str.toLowerCase();
 
   // remove accents, swap ñ for n, etc
-  var from = 'àáäâèéëêìíïîòóöôùúüûñç·/_,:;';
-  var to = 'aaaaeeeeiiiioooouuuunc------';
+  const from = 'àáäâèéëêìíïîòóöôùúüûñç·/_,:;';
+  const to = 'aaaaeeeeiiiioooouuuunc------';
 
-  for (var i = 0, l = from.length; i < l; i++) {
+  for (let i = 0, l = from.length; i < l; i++) {
     str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
   }
 
