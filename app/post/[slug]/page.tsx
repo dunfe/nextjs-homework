@@ -1,6 +1,6 @@
 import { client } from "@lib/client";
 import { CtfRichText } from '@components/contentful/CtfRichText';
-import { Document } from '@contentful/rich-text-types';
+import Hero from "@components/Hero";
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const blogPageData = await client.pageBlogPost({ slug: params.slug.toString() });
@@ -24,15 +24,18 @@ const Post = async ({ params }: { params: { slug: string } }) => {
   }
 
   return (
-    <article>
+    <div>
+      <Hero title={blogPost.title ?? ""} subtitle={blogPost.shortDescription ?? ""} />
       <div className="container">
         <div className="row">
           <div className="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <CtfRichText json={blogPost.content?.json} links={blogPost.content?.links} />
+            <article className="text-dark">
+              <CtfRichText json={blogPost.content?.json} links={blogPost.content?.links} />
+            </article>
           </div>
         </div>
       </div>
-    </article>
+    </div>
   );
 };
 

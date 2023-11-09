@@ -1,6 +1,7 @@
 import { client } from '@lib/client';
 import { PageBlogPostOrder } from '@lib/__generated/sdk';
 import PostPreview from 'components/PostPreview';
+import Hero from '@components/Hero';
 
 async function getPosts() {
   const landingPageData = await client.pageLanding();
@@ -27,12 +28,19 @@ export default async function Home() {
     )
   }
 
-  return ( 
+  return (
     <div>
-    {
-      posts.map((post) => {
-        return <PostPreview key={post?.slug} post={post} />
-    })}
+      <Hero title="Clean Blog" subtitle="A Blog Theme by Start Bootstrap" />
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            {
+              posts.map((post) => {
+                return <PostPreview key={post?.slug} post={post} />
+              })}
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

@@ -4,9 +4,9 @@ import Head from 'next/head'
 import Link from 'next/link'
 import './vendor/font-awesome/css/font-awesome.min.css'
 import './vendor/bootstrap/css/bootstrap.min.css'
-import './css/clean-blog.min.css'
 import './globals.css'
-import Script from 'next/script'
+import './css/clean-blog.min.css'
+import Hero from '@components/Hero'
 
 const open_sans = Open_Sans({ subsets: ['latin'] })
 const lora = Lora({ subsets: ['latin'] })
@@ -63,27 +63,7 @@ export default function RootLayout({
           </div>
         </nav>
 
-        <header className="intro-header" style={{ backgroundImage: "url('img/home-bg.jpg')" }}>
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div className="site-heading">
-                  <h1>Clean Blog</h1>
-                  <hr className="small" />
-                  <span className="subheading">A Clean Blog Theme by Start Bootstrap</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </header>
-
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-              {children}
-            </div>
-          </div>
-        </div>
+        {children}
 
         <footer>
           <div className="container">
@@ -120,9 +100,9 @@ export default function RootLayout({
             </div>
           </div>
         </footer>
-
-        <Script src="./vendor/jquery/jquery.min.js"></Script>
-        <Script src="./vendor/bootstrap/js/bootstrap.min.js"></Script>
+        <script async src="vendor/jquery/jquery.min.js"></script>
+        <script async src="./vendor/jquery/jquery.min.js"></script>
+        <script async src="./vendor/bootstrap/js/bootstrap.min.js"></script>
 
       </body>
     </html>
