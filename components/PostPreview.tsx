@@ -1,5 +1,6 @@
-import { PageBlogPostFieldsFragment } from "@lib/__generated/sdk"
 import Link from "next/link"
+
+import { PageBlogPostFieldsFragment } from "@lib/__generated/sdk"
 
 interface IProps {
     post: PageBlogPostFieldsFragment | null

@@ -1,7 +1,7 @@
-import { client } from '@lib/client';
-import { PageBlogPostOrder } from '@lib/__generated/sdk';
-import PostPreview from 'components/PostPreview';
 import Hero from '@components/Hero';
+import { PageBlogPostOrder } from '@lib/__generated/sdk';
+import { client } from '@lib/client';
+import PostPreview from 'components/PostPreview';
 
 async function getPosts() {
   const landingPageData = await client.pageLanding();

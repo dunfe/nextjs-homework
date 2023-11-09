@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 import { Lora, Open_Sans } from 'next/font/google'
 import Head from 'next/head'
 import Link from 'next/link'
+
 import './vendor/font-awesome/css/font-awesome.min.css'
 import './vendor/bootstrap/css/bootstrap.min.css'
 import './globals.css'
 import './css/clean-blog.min.css'
-import Hero from '@components/Hero'
 
 const open_sans = Open_Sans({ subsets: ['latin'] })
 const lora = Lora({ subsets: ['latin'] })
@@ -97,9 +97,9 @@ export default function RootLayout({
             </div>
           </div>
         </footer>
-        <script async src="vendor/jquery/jquery.min.js"></script>
-        <script async src="./vendor/jquery/jquery.min.js"></script>
-        <script async src="./vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script async src="vendor/jquery/jquery.min.js"/>
+        <script async src="./vendor/jquery/jquery.min.js"/>
+        <script async src="./vendor/bootstrap/js/bootstrap.min.js"/>
 
       </body>
     </html>

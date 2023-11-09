@@ -1,4 +1,5 @@
 import NextImage, { ImageProps as NextImageProps } from 'next/image';
+
 import { ImageFieldsFragment } from '@lib/__generated/sdk';
 
 interface ImageProps extends Omit<ImageFieldsFragment, '__typename'> {

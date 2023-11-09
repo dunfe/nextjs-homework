@@ -1,6 +1,6 @@
-import { client } from "@lib/client";
 import { CtfRichText } from '@components/contentful/CtfRichText';
 import Hero from "@components/Hero";
+import { client } from "@lib/client";
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const blogPageData = await client.pageBlogPost({ slug: params.slug.toString() });
@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 const Post = async ({ params }: { params: { slug: string } }) => {
   const blogPageData = await client.pageBlogPost({ slug: params.slug.toString() });
   const blogPost = blogPageData.pageBlogPostCollection?.items[0];
-  
+
   if (!blogPost) {
     return null;
   }
