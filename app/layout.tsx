@@ -1,20 +1,15 @@
 import type { Metadata } from 'next'
+import { Lora, Open_Sans } from 'next/font/google'
+import Script from 'next/script'
+import Link from 'next/link'
+
 import 'bootstrap/dist/css/bootstrap.css'
 import './globals.css'
-import Link from 'next/link'
 import './css/clean-blog.min.css'
 import './vendor/font-awesome/css/font-awesome.min.css'
-import { Lora, Open_Sans } from 'next/font/google'
-import dynamic from 'next/dynamic';
-import Script from 'next/script'
 
 const open_sans = Open_Sans({ subsets: ['latin'] })
 const lora = Lora({ subsets: ['latin'] })
-
-const DynamicBootstrap = dynamic(
-  () => require('bootstrap/dist/js/bootstrap.min.js'),
-  { ssr: false }
-);
 
 export const metadata: Metadata = {
   title: 'Create Next App',
