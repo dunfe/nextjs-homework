@@ -1,7 +1,7 @@
 import { documentToReactComponents, Options } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, Document } from '@contentful/rich-text-types';
 import { ArticleImage } from '@components/features/article';
-import { ComponentRichImage } from '@src/lib/__generated/sdk';
+import { ComponentRichImage } from '@lib/__generated/sdk';
 
 export type EmbeddedEntryType = ComponentRichImage | null;
 

@@ -1,12 +1,12 @@
 import type { Metadata } from 'next'
 import { Lora, Open_Sans } from 'next/font/google'
-import Script from 'next/script'
+import Head from 'next/head'
 import Link from 'next/link'
-
-import 'bootstrap/dist/css/bootstrap.css'
-import './globals.css'
-import './css/clean-blog.min.css'
 import './vendor/font-awesome/css/font-awesome.min.css'
+import './vendor/bootstrap/css/bootstrap.min.css'
+import './css/clean-blog.min.css'
+import './globals.css'
+import Script from 'next/script'
 
 const open_sans = Open_Sans({ subsets: ['latin'] })
 const lora = Lora({ subsets: ['latin'] })
@@ -24,7 +24,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <head>
+      <Head>
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -32,22 +32,14 @@ export default function RootLayout({
         <meta name="author" content="" />
 
         <title>Clean Blog</title>
-        <Script
-          src="https://code.jquery.com/jquery-3.7.1.min.js"
-          async></Script>
-        <Script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></Script>
-        <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></Script>
-        <Script async src="js/jqBootstrapValidation.js"></Script>
-        <Script async src="js/contact_me.js"></Script>
-        <Script async src="js/clean-blog.min.js"></Script>
-      </head>
+      </Head>
       <body className={`${open_sans.className} ${lora.className}`}>
         <nav className="navbar navbar-default navbar-custom navbar-fixed-top">
           <div className="container-fluid">
             <div className="navbar-header page-scroll">
               <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span className="sr-only">Toggle navigation</span>
-                Menu <i className="fa fa-bars"></i>
+                Menu <i className="fa fa-bars" />
               </button>
               <Link className="navbar-brand" href="#">Start Bootstrap</Link>
             </div>
@@ -101,24 +93,24 @@ export default function RootLayout({
                   <li>
                     <Link href="#">
                       <span className="fa-stack fa-lg">
-                        <i className="fa fa-circle fa-stack-2x"></i>
-                        <i className="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                        <i className="fa fa-circle fa-stack-2x" />
+                        <i className="fa fa-twitter fa-stack-1x fa-inverse" />
                       </span>
                     </Link>
                   </li>
                   <li>
                     <Link href="#">
                       <span className="fa-stack fa-lg">
-                        <i className="fa fa-circle fa-stack-2x"></i>
-                        <i className="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                        <i className="fa fa-circle fa-stack-2x" />
+                        <i className="fa fa-facebook fa-stack-1x fa-inverse" />
                       </span>
                     </Link>
                   </li>
                   <li>
                     <Link href="#">
                       <span className="fa-stack fa-lg">
-                        <i className="fa fa-circle fa-stack-2x"></i>
-                        <i className="fa fa-github fa-stack-1x fa-inverse"></i>
+                        <i className="fa fa-circle fa-stack-2x" />
+                        <i className="fa fa-github fa-stack-1x fa-inverse" />
                       </span>
                     </Link>
                   </li>
@@ -128,6 +120,10 @@ export default function RootLayout({
             </div>
           </div>
         </footer>
+
+        <Script src="./vendor/jquery/jquery.min.js"></Script>
+        <Script src="./vendor/bootstrap/js/bootstrap.min.js"></Script>
+
       </body>
     </html>
   )

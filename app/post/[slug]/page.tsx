@@ -38,16 +38,15 @@ const Post = async ({ params }: { params: { slug: string } }) => {
 
 export async function generateStaticParams() {
   const data = await client.pageBlogPostCollection();
+  const posts = data.pageBlogPostCollection?.items;
 
-  return data.pageBlogPostCollection?.items.map(blogPost =>
-    blogPost?.slug
-      ? {
-        slug: blogPost.slug,
-        content: blogPost.content?.json,
-        links: blogPost.content?.links,
-      }
-      : undefined,
-  ).filter(Boolean);
+  if (!posts) {
+    return [];
+  }
+
+  return posts.filter(item => item && item.slug).map(blogPost => {
+    slug: blogPost?.slug
+  });
 }
 
 export default Post;
