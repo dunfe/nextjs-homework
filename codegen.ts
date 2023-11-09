@@ -10,20 +10,20 @@ export const config: CodegenConfig = {
     {
       [endpoint || '']: {
         headers: {
-          Authorization: `Bearer u4-uY2FYdJpIGKFRaE-E53qh-w4MEK_wwz7HVfAiZmU`,
+          Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`,
         },
       },
     },
   ],
   generates: {
-    'src/lib/__generated/graphql.schema.json': {
+    'lib/__generated/graphql.schema.json': {
       plugins: ['introspection'],
     },
-    'src/lib/__generated/graphql.schema.graphql': {
+    'lib/__generated/graphql.schema.graphql': {
       plugins: ['schema-ast'],
     },
-    'src/lib/__generated/sdk.ts': {
-      documents: ['src/lib/graphql/**/*.graphql'],
+    'lib/__generated/sdk.ts': {
+      documents: ['lib/graphql/**/*.graphql'],
       plugins: ['typescript', 'typescript-operations', 'typescript-graphql-request'],
       config: {
         rawRequest: false,

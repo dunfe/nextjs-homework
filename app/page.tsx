@@ -12,13 +12,13 @@ export default async function Home() {
     )
   }
 
-  return (
-    <>
+  return ( 
+    <div>
     {
       posts.map((post) => {
         return <PostPreview key={post?.slug} post={post} />
     })}
-    </>
+    </div>
   )
 }
 

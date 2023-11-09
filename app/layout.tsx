@@ -1,9 +1,20 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import 'bootstrap/dist/css/bootstrap.css'
 import './globals.css'
 import Link from 'next/link'
+import './css/clean-blog.min.css'
+import './vendor/font-awesome/css/font-awesome.min.css'
+import { Lora, Open_Sans } from 'next/font/google'
+import dynamic from 'next/dynamic';
+import Script from 'next/script'
 
-const inter = Inter({ subsets: ['latin'] })
+const open_sans = Open_Sans({ subsets: ['latin'] })
+const lora = Lora({ subsets: ['latin'] })
+
+const DynamicBootstrap = dynamic(
+  () => require('bootstrap/dist/js/bootstrap.min.js'),
+  { ssr: false }
+);
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -15,6 +26,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
   return (
     <html lang="en">
       <head>
@@ -25,20 +37,16 @@ export default function RootLayout({
         <meta name="author" content="" />
 
         <title>Clean Blog</title>
-
-        {/* Bootstrap Core CSS */}
-        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-
-        {/* Theme CSS */}
-        <link href="css/clean-blog.min.css" rel="stylesheet" />
-
-        {/* Custom Fonts */}
-        <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-        <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css' />
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css' />
-
+        <Script
+          src="https://code.jquery.com/jquery-3.7.1.min.js"
+          async></Script>
+        <Script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></Script>
+        <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></Script>
+        <Script async src="js/jqBootstrapValidation.js"></Script>
+        <Script async src="js/contact_me.js"></Script>
+        <Script async src="js/clean-blog.min.js"></Script>
       </head>
-      <body className={inter.className}>
+      <body className={`${open_sans.className} ${lora.className}`}>
         <nav className="navbar navbar-default navbar-custom navbar-fixed-top">
           <div className="container-fluid">
             <div className="navbar-header page-scroll">
@@ -82,7 +90,13 @@ export default function RootLayout({
           </div>
         </header>
 
-        {children}
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+              {children}
+            </div>
+          </div>
+        </div>
 
         <footer>
           <div className="container">
@@ -119,14 +133,6 @@ export default function RootLayout({
             </div>
           </div>
         </footer>
-        <script async src="vendor/jquery/jquery.min.js"></script>
-
-        <script async src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
-        <script async src="js/jqBootstrapValidation.js"></script>
-        <script async src="js/contact_me.js"></script>
-
-        <script async src="js/clean-blog.min.js"></script>
       </body>
     </html>
   )
