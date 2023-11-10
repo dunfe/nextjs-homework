@@ -7,11 +7,10 @@ import { ToastContainer } from 'react-toastify';
 
 import Navigation from '@components/Navigation';
 
+import 'react-toastify/dist/ReactToastify.css';
 import './vendor/font-awesome/css/font-awesome.min.css'
 import './vendor/bootstrap/css/bootstrap.min.css'
-import './globals.css'
 import './css/clean-blog.min.css'
-import 'react-toastify/dist/ReactToastify.css';
 
 const open_sans = Open_Sans({ subsets: ['latin'] })
 const lora = Lora({ subsets: ['latin'] })
@@ -81,8 +80,8 @@ export default function RootLayout({
             </div>
           </footer>
           <ToastContainer />
+
           <script async src="vendor/jquery/jquery.min.js" />
-          <script async src="./vendor/jquery/jquery.min.js" />
           <script async src="./vendor/bootstrap/js/bootstrap.min.js" />
 
         </body>
