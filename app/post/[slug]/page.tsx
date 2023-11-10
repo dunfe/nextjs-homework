@@ -1,5 +1,3 @@
-import Script from 'next/script';
-
 import { CtfRichText } from '@components/contentful/CtfRichText';
 import Hero from "@components/Hero";
 import { client } from "@lib/client";
