@@ -19,7 +19,7 @@ async function getPosts() {
   return posts;
 }
 
-export const revalidate = false
+export const revalidate = 0
 export const runtime = 'nodejs'
 
 export default async function Home() {
