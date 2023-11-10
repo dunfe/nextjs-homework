@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Lora, Open_Sans } from 'next/font/google'
 import Head from 'next/head'
 import Link from 'next/link'
+import Script from 'next/script';
 import { ToastContainer } from 'react-toastify';
 
 import Navigation from '@components/Navigation';
@@ -36,8 +37,13 @@ export default function RootLayout({
         <meta name="author" content="" />
 
         <title>Clean Blog</title>
+
+
       </Head>
       <UserProvider>
+        <Script async src="/vendor/jquery/jquery.min.js" />
+        <Script async src="/vendor/bootstrap/js/bootstrap.min.js" />
+
 
         <body className={`${open_sans.className} ${lora.className}`}>
           <Navigation />
@@ -80,10 +86,6 @@ export default function RootLayout({
             </div>
           </footer>
           <ToastContainer />
-
-          <script async src="vendor/jquery/jquery.min.js" />
-          <script async src="./vendor/bootstrap/js/bootstrap.min.js" />
-
         </body>
       </UserProvider>
     </html>
