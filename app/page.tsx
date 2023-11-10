@@ -19,6 +19,9 @@ async function getPosts() {
   return posts;
 }
 
+export const revalidate = false
+export const runtime = 'nodejs'
+
 export default async function Home() {
   const posts = await getPosts();
 
